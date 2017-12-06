@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: Lato, sans-serif;
 }
 
 #Banner {
@@ -7,6 +8,7 @@ body {
     height: 30vh;
     justify-content: space-between;
     align-items: center;
+    border-bottom: dashed 1.75px #6f7072;
 
 }
 
@@ -14,7 +16,7 @@ body {
     display: flex;
     align-items: center;
     height: inherit;
-    width: 25vw;
+    width: 30vw;
     margin-left: 20px;
     margin-top: 20px;
     margin-right: 10px;
@@ -36,11 +38,14 @@ body {
     text-align: center;
     margin-left: 10px;
     margin-top: 20px;
-    margin-right: 25vw;
+    margin-right: 30vw;
 }
 
 #title {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5em;
+    color: #083a81;
+    text-shadow: 0.1em 0.1em #ccc;
 }
