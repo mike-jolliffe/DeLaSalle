@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+
+#Banner {
+    display: flex;
+    height: 30vh;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#logoContainer {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    width: 25vw;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+#logo {
+    height: 50%;
+    width: inherit;
+    background-image: url("/static/pages/img/LogoMedium.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-right: 25vw;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
