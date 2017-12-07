@@ -4,6 +4,10 @@ body {
     background-color: #083a81;
 }
 
+h1 .btn {
+	font-size:30px;
+}
+
 .navbar {
     margin: 0;
     border-radius: 0 !important;
