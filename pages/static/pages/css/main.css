@@ -23,6 +23,16 @@ body {
   z-index: -1;
 }
 
+.panel-default > .panel-heading-custom {
+    background: #083a81;
+    color: #fff;
+}
+
+.col-lg-3, .col-sm-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .jumbotron {
   height: 750px;
   color: white;
@@ -32,5 +42,11 @@ body {
 
 .container {
     width: 100%;
-    background-color: #ffffff;
+    background-color: #cccccc;
+}
+
+.sponsorImage {
+    height: 200px;
+    background-image: url('/static/pages/img/placeholder.jpg');
+    background-size: cover;
 }
