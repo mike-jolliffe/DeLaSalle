@@ -2,38 +2,36 @@
 {% load static %}
 
 {% block content %}
-<body>
-    <div id="Banner">
-        <div id="logoContainer">
-            <div id="logo"></div>
-        </div>
-        <div id="titleContainer">
-            <div id="title">
-                <h1>First Annual DLSNC AB Cornhole Tournament</h1>
+    <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">DLSNC Cornhole Tournament</a>
             </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Page 1</a></li>
+                <li><a href="#">Page 2</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
         </div>
-    </div>
-    <div id="main">
-        <div id="sponsorsContainer">
-            <h3>THANK YOU TO OUR GENEROUS SPONSORS!</h3>
-            <div>SPONSOR</div>
-            <div>SPONSOR</div>
-            <div>SPONSOR</div>
-            <div>SPONSOR</div>
-            <div>SPONSOR</div>
-        </div>
-        <div id="evtDetails">
+    </nav>
+
+    <div class="jumbotron text-center">
+        <div id="banner" class="container-fluid">
+            <h1>First Annual DLSNC AB Cornhole Tournament</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <p>Saturday, February 24th , 2018 from 1-4 pm at the DLSNC Gymnasium.</p>
             <p>7528 N. Fenwick Avenue, Portland OR 97217. Free parking in lot.</p>
             <p>$125 pp ($250 per team) – individuals’ entry fee. Fee includes 2 drinks and “tailgate style” food.</p>
             <p>Prizes for top teams, and top fundraising teams.</p>
+            <button type="button" class="btn btn-primary">REGISTER</button>
         </div>
     </div>
-    <div id="footer">
-    </div>
-</body>
-
-
-
 
 {% endblock %}

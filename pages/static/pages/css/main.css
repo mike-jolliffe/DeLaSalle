@@ -1,28 +1,9 @@
 body {
     margin: 0;
     font-family: Lato, sans-serif;
-    background-color: #ddd;
+    background-color: #083a81;
 }
 
-#Banner {
-    display: flex;
-    height: 30vh;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    border-bottom: dashed 1.75px #6f7072;
-
-}
-
-#logoContainer {
-    display: flex;
-    align-items: center;
-    height: inherit;
-    width: 30vw;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-right: 10px;
-}
 
 #logo {
     height: 50%;
@@ -52,30 +33,6 @@ body {
     text-shadow: 0.1em 0.1em #ccc;
 }
 
-/* Main body of the page */
-#main {
-    display: flex;
-    justify-content: space-between;
-}
-
-#sponsorsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-    align-items: center;
-    height: 100vh;
-    width: 17vw;
-    padding-left: 20px;
-    margin-right: 10px;
-    padding-right: 20px;
-    border-right: dashed 1.75px #6f7072;
-}
-
-#evtDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-right: 17vw;
+.navbar {
+    margin: 0;
 }
