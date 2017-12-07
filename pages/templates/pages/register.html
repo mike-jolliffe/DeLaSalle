@@ -2,6 +2,19 @@
 {% load static %}
 
 {% block content %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://www.delasallenorth.org/">DLSNC</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active"><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="#">Leaderboard</a></li>
+                <li><a href="#myModal" data-toggle="modal">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
     <body>
     <br>
     <div class="col-sm-6 col-sm-offset-3">
@@ -14,10 +27,42 @@
     <br>
     <div class="col-sm-6 col-sm-offset-3">
         <div class="panel panel-default">
-            <div class="row text-center">
-                <h3 class="col-lg-12">STEP TWO: CREATE OR JOIN A TEAM</h3>
+            <div class="col-sm-12" id="registration">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4><strong>Registrant Details</strong></h4>
+                        <hr>
+                        <form class="form" method="post">
+                            <div class="form-group">
+                                <label for="exampleInputName1">First Name</label>
+                                <input name="txtUsername" type="text" class="form-control" placeholder="Billy">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputName2">Last Name</label>
+                                <input name="txtUsername" type="text" class="form-control" placeholder="Beanbags">
+                            </div>
+
+                            <div class="form-group">
+                                <p>
+                                    <label for="exampleInputName2">E-mail</label>
+                                    <input name="txtEmail" type="text" class="form-control"
+                                           placeholder="mr_bean@bags.com">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" name="btnSaveEmail" class="btn btn-primary btn-sm pull-right">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="row text-center">
+        <h3 class="col-lg-12">STEP TWO: CREATE OR JOIN A TEAM</h3>
     </div>
     <br>
     <div class="col-sm-6 col-sm-offset-3">
@@ -27,7 +72,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="eventbrite-widget-container-41123033099"></div>
 
     <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
