@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $('')
     var jumboHeight = $('.jumbotron').outerHeight();
 
     function parallax() {
