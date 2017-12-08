@@ -10,6 +10,13 @@ $(document).ready(function () {
         parallax();
     });
 
+    $(".dropdown-menu li a").click(function () {
+
+        console.log("Clicked");
+        console.log($("#teamSelect").text($(this).text()));
+        $("#teamSelect").html('<span>' + $(this).text() + '</span>' + ' ' + '<span class="caret"></span>');
+    });
+
     /* form validation plugin */
     $.fn.goValidate = function () {
         var $form = this,
@@ -100,7 +107,7 @@ $(document).ready(function () {
         return this;
     };
     $('form').goValidate();
-
 });
+
 
 
