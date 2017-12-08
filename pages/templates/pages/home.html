@@ -10,7 +10,8 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="#">Leaderboard</a></li>
+                <li><a href="{% url 'donate' %}">Support A Team</a></li>
+                <li><a href="{% url 'leaderboard' %}">Fundraising Leaderboard</a></li>
                 <li><a href="#myModal" data-toggle="modal">Contact Us</a></li>
             </ul>
         </div>
@@ -34,7 +35,7 @@
     <div class="container">
         <br>
         <div class="row">
-            <div class="panel panel-default col-sm-4">
+            <div id="sponsorPanel" class="panel panel-default col-sm-4">
                 <div class="panel-heading panel-heading-custom text-center">THANKS TO OUR GENEROUS SPONSORS!</div>
                 <div class="panel-body">
                     <div id="sponsor1" class="sponsorImage"></div>

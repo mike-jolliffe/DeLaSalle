@@ -10,7 +10,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li class="active"><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="#">Leaderboard</a></li>
+                <li><a href="{% url 'donate' %}">Support A Team</a></li>
+                <li><a href="{% url 'leaderboard' %}">Fundraising Leaderboard</a></li>
                 <li><a href="#myModal" data-toggle="modal">Contact Us</a></li>
             </ul>
         </div>
@@ -108,7 +109,7 @@
             iframeContainerId: 'eventbrite-widget-container-41123033099',
 
             // Optional
-            iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+            iframeContainerHeight: 500,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
             onOrderComplete: exampleCallback  // Method called when an order has successfully completed
         });
     </script>
