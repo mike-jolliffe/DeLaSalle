@@ -17,62 +17,85 @@
     </nav>
     <body>
     <br>
-    <div class="col-sm-6 col-sm-offset-3">
-        <div class="panel panel-default">
-            <div class="row text-center">
-                <h3 class="col-lg-12">STEP ONE: REGISTER YOURSELF</h3>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-default text-center"><strong>STEP ONE: REGISTER
+                    YOURSELF</strong></div>
+                <div class="panel-body">
+                    <form class="form" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputName1">First Name</label>
+                            <input name="txtUsername" type="text" class="form-control" placeholder="Billy">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName2">Last Name</label>
+                            <input name="txtUsername" type="text" class="form-control" placeholder="Beanbags">
+                        </div>
+
+                        <div class="form-group">
+                            <p>
+                                <label for="exampleInputName2">E-mail</label>
+                                <input name="txtEmail" type="text" class="form-control"
+                                       placeholder="mr_bean@bags.com">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" name="btnSaveEmail" class="btn btn-primary btn-sm pull-right">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <br>
-    <div class="col-sm-6 col-sm-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h4><strong>Registrant Details</strong></h4>
-                <hr>
-                <form class="form" method="post">
-                    <div class="form-group">
-                        <label for="exampleInputName1">First Name</label>
-                        <input name="txtUsername" type="text" class="form-control" placeholder="Billy">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputName2">Last Name</label>
-                        <input name="txtUsername" type="text" class="form-control" placeholder="Beanbags">
-                    </div>
-
-                    <div class="form-group">
-                        <p>
-                            <label for="exampleInputName2">E-mail</label>
-                            <input name="txtEmail" type="text" class="form-control"
-                                   placeholder="mr_bean@bags.com">
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" name="btnSaveEmail" class="btn btn-primary btn-sm pull-right">
-                            Save
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-default text-center"><strong>STEP TWO: CREATE OR JOIN A
+                    TEAM</strong></div>
+                <div class="panel-body">
+                    <div class="btn-group col-lg-4 col-lg-offset-1">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            Join a Team <span class="caret"></span>
                         </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">SandBaggers</a></li>
+                            <li><a href="#">Underhanded</a></li>
+                            <li><a href="#">DeadRingers</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
                     </div>
-                </form>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Pick a new team name">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Create New Team</button>
+                          </span>
+                        </div><!-- /input-group -->
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row text-center">
-        <h3 class="col-lg-12">STEP TWO: CREATE OR JOIN A TEAM</h3>
     </div>
     <br>
-    <div class="col-sm-6 col-sm-offset-3">
-        <div class="panel panel-default">
-            <div class="row text-center">
-                <h3 class="col-lg-12">STEP THREE: BUY A TICKET</h3>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-default text-center"><strong>STEP THREE: BUY A TICKET</strong>
+                </div>
+                <div class="panel-body">
+                    <div id="eventbrite-widget-container-41123033099"></div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div id="eventbrite-widget-container-41123033099"></div>
-
     <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-
     <script type="text/javascript">
         var exampleCallback = function () {
             console.log('Order complete!');
