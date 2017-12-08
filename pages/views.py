@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.core.mail import send_mail
 
 def home(request):
@@ -13,5 +13,12 @@ def donate(request):
 def leaderboard(request):
     return render(request, 'pages/leaderboard.html')
 
-
-#Working email send_mail('TESTING EMAIL', 'It works, dude!', 'dlsnc.fundraiser@gmail.com', ['jolly0313@gmail.com'], fail_silently=False)
+def contact_us(request):
+    if request.method == "POST":
+        name = request.POST.get('contactName')
+        message = request.POST.get('contactMsg')
+        email = request.POST.get('contactEmail')
+        send_mail('{} has questions'.format(name), "{} \n \n {}".format(email, message), 'dlsnc.fundraiser@gmail.com', ['jolly0313@gmail.com'],
+                  fail_silently=False)
+        return HttpResponse("Success")
+    return HttpResponse("Message Send Failed")
