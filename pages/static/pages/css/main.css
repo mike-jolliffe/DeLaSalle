@@ -59,3 +59,21 @@ h1 .btn {
 #sponsorPanel {
     margin-left: 10px !important;
 }
+
+.navbar-footer {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-brand-foot {
+    float:none;
+    color: #aaaaaa;
+    font-size: 1.1em;
+}
+
+.navbar-brand-foot:hover {
+    color: #eeeeee;
+    text-decoration: none;
+}
