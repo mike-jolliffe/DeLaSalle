@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.core.mail import send_mail
+from pages.models import Team, Player
 
 def home(request):
     return render(request, 'pages/home.html')
@@ -22,3 +23,10 @@ def contact_us(request):
                   fail_silently=False)
         return HttpResponse("Success")
     return HttpResponse("Message Send Failed")
+
+def create_team(request):
+    if request.method == "POST":
+        print("requesting data")
+        name = request.POST.get('teamName')
+        print(name)
+        #Team.objects.create(name=)
