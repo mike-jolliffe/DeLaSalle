@@ -23,8 +23,10 @@
     <script src="{% static 'pages/js/main.js' %}"></script>
 </head>
 
-{% block content %}
-{% endblock %}
+<div id="contentWrapper">
+    {% block content %}
+    {% endblock %}
+</div>
 
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -70,4 +72,5 @@
                 <a class="navbar-brand-foot" href="https://mike-jolliffe.github.io">Built by Mike</a>
             </div>
         </div>
+</nav>
 </html>

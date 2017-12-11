@@ -73,11 +73,11 @@
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <form class="input-group" action="{% url 'create_team' %}" method="post">
+                        <form id="newTeam" class="input-group" action="{% url 'create_team' %}" method="post">
                             {% csrf_token %}
                           <input type="text" class="form-control" name='teamName' placeholder="Pick a new team name">
                           <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit">Create New Team</button>
+                            <button class="btn btn-default" form="newTeam" type="Submit">Create New Team</button>
                           </span>
                         </form><!-- /input-group -->
                     </div>
