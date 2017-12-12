@@ -6,7 +6,8 @@ def home(request):
     return render(request, 'pages/home.html')
 
 def register(request):
-    return render(request, 'pages/register.html')
+    teams = Team.objects.all()
+    return render(request, 'pages/register.html', {'teams': teams})
 
 def donate(request):
     return render(request, 'pages/donate.html')

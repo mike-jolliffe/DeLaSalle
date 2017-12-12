@@ -67,9 +67,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">Join a Team</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">SandBaggers</a></li>
-                            <li><a href="#">Underhanded</a></li>
-                            <li><a href="#">DeadRingers</a></li>
+                            {% for team in teams %}
+                                <li><a href="#">{{ team }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="col-lg-6">
