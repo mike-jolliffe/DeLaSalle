@@ -26,7 +26,6 @@ def contact_us(request):
 
 def create_team(request):
     if request.method == "POST":
-        print("requesting data")
         name = request.POST.get('teamName')
-        print(name)
-        #Team.objects.create(name=)
+        Team.objects.get_or_create(name=name)
+        return HttpResponse("Team created!")

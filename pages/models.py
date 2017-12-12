@@ -2,7 +2,7 @@ from django.db import models
 
 class Team(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    funding = models.FloatField(max_length=10)
+    funding = models.FloatField(max_length=10, null=True, blank=True)
 
     def __str__(self):
         return self.name
