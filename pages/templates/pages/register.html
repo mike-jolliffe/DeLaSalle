@@ -42,54 +42,44 @@
                                        placeholder="mr_bean@bags.com">
                         </div>
 
+                        <div id="teamSelectContainer" class="form-group col-lg-6">
+                            <label for="teamSelect">Pick or Create a Team</label><br>
+                            <button id="teamSelect" type="button" class="btn btn-default dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Teams <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li id="createTeam"><a href="#">Create a Team</a></li>
+                                <li role="separator" class="divider"></li>
+                                {% for team in teams %}
+                                    <li><a href="#">{{ team }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <input id="newTeam" type="text" class="form-control" name='teamName'
+                                   placeholder="Pick a new team name">
+                        </div>
+                        <br><br>
+
                         <div class="form-group">
                             <button type="submit" name="btnSaveEmail" class="btn btn-primary btn-sm pull-right">
                                 Save
                             </button>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <br>
-    <div class="row">
-        <div class="col-lg-6 col-lg-offset-3 col-sm-10 col-sm-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading panel-heading-default text-center"><strong>STEP TWO: CREATE OR JOIN A
-                    TEAM</strong></div>
-                <div class="panel-body">
-                    <div class="btn-group col-lg-4 col-lg-offset-1">
-                        <button id="teamSelect" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Join a Team <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Join a Team</a></li>
-                            <li role="separator" class="divider"></li>
-                            {% for team in teams %}
-                                <li><a href="#">{{ team }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <form id="newTeam" class="input-group" action="{% url 'create_team' %}" method="post">
-                            {% csrf_token %}
-                          <input type="text" class="form-control" name='teamName' placeholder="Pick a new team name">
-                          <span class="input-group-btn">
-                            <input class="btn btn-default" form="newTeam" type="submit" value="Create New Team">
-                          </span>
-                        </form><!-- /input-group -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <br>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3 col-sm-10 col-sm-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading panel-heading-default text-center"><strong>STEP THREE: BUY A TICKET</strong>
+                <div class="panel-heading panel-heading-default text-center"><strong>STEP TWO: BUY A TICKET</strong>
                 </div>
                 <div class="panel-body">
                     <div id="eventbrite-widget-container-41123033099"></div>
@@ -113,6 +103,7 @@
             iframeContainerHeight: 500,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
             onOrderComplete: exampleCallback  // Method called when an order has successfully completed
         });
+        
     </script>
 
     </body>

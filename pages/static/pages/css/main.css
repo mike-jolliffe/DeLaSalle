@@ -88,3 +88,11 @@ h1 .btn {
 #contentWrapper {
     min-height: 120%;
 }
+
+#newTeam {
+    display: none;
+}
+
+#teamSelectContainer {
+    padding-left: 0;
+}
