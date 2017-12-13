@@ -12,8 +12,8 @@ $(document).ready(function () {
 
     $(".dropdown-menu li a").click(function () {
         $("#teamSelect").html('<span>' + $(this).text() + '</span>' + ' ' + '<span class="caret"></span>');
-        if($(this).text() == "Create a Team") {
-          $('#newTeam').css('display', 'block');
+        if ($(this).text() == "Create a Team") {
+            $('#newTeam').css('display', 'block');
         } else {
             $('#newTeam').css('display', 'none');
         }
