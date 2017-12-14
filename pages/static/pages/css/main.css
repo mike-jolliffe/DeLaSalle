@@ -96,3 +96,13 @@ h1 .btn {
 #teamSelectContainer {
     padding-left: 0;
 }
+
+#shareContainer {
+    margin-right: 10%;
+}
+
+#shareBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
