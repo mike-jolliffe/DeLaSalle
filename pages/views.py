@@ -28,20 +28,21 @@ def contact_us(request):
 
 def add_registrant(request):
     if request.method == "POST":
-        # Update the teams database
-        teamname = request.POST.get('newName')
-        print("Team: {}".format(teamname))
-        if not Team.objects.filter(name=teamname).exists():
-            print("Team doesn't exist")
-            team = Team(name=teamname)
-            team.save()
-        else:
-            print("Team exists")
 
         # Update the players database
         first_name = request.POST.get('txtFirstName')
         last_name = request.POST.get('txtLastName')
         email = request.POST.get('txtEmail')
-        Player.objects.create(first_name=first_name, last_name=last_name, email=email, team=team)
+        teammate = request.POST.get('pickTeammate')
 
-        return HttpResponse("Team created!")
+        # TODO Figure out how to assign to new or existing team
+
+        Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate)
+
+        teammate_first = teammate.split()[0]
+        teammate_last = teammate.split()[1]
+        if Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).exists():
+            print("Found!")
+
+        return HttpResponse("You're registered!")
+
