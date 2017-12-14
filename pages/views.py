@@ -37,12 +37,15 @@ def add_registrant(request):
 
         # TODO Figure out how to assign to new or existing team
 
-        Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate)
-
         teammate_first = teammate.split()[0]
         teammate_last = teammate.split()[1]
         if Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).exists():
-            print("Found!")
+            newTeam = Team.objects.create()
+            newTeam.save()
+            Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate, team=newTeam)
+            Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).update(team=newTeam)
+        else:
+            Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate)
 
         return HttpResponse("You're registered!")
 
