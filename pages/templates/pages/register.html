@@ -43,6 +43,19 @@
                                        placeholder="mr_bean@bags.com">
                         </div>
 
+                        <label for="knowTeammate" class="col-lg-12 text-center">Do you have a teammate?</label>
+                        <br>
+                        <div class="text-center">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked=""> YES
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> NO
+                                </label>
+                            </div>
+                        </div>
+
                         <div id="teamSelectContainer" class="form-group col-lg-6">
                             <label for="teamSelect">Pick or Create a Team</label><br>
                             <button id="teamSelect" type="button" class="btn btn-default dropdown-toggle"
@@ -104,7 +117,7 @@
             iframeContainerHeight: 500,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
             onOrderComplete: exampleCallback  // Method called when an order has successfully completed
         });
-        
+
     </script>
 
     </body>
