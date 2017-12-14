@@ -10,12 +10,12 @@ $(document).ready(function () {
         parallax();
     });
 
-    $(".dropdown-menu li a").click(function () {
-        $("#teamSelect").html('<span>' + $(this).text() + '</span>' + ' ' + '<span class="caret"></span>');
-        if ($(this).text() == "Create a Team") {
-            $('#newTeam').css('display', 'block');
+    $("#knowTeammate label").click(function () {
+        console.log($(this).text());
+        if ($(this).children().attr("id") == "option1") {
+            $('#pickTeammate').css('display', 'block');
         } else {
-            $('#newTeam').css('display', 'none');
+            $('#pickTeammate').css('display', 'none');
         }
     });
 

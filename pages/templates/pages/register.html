@@ -43,39 +43,25 @@
                                        placeholder="mr_bean@bags.com">
                         </div>
 
-                        <label for="knowTeammate" class="col-lg-12 text-center">Do you have a teammate?</label>
+                        <label for="knowTeammate" class="col-lg-12 text-center">Do you already have a teammate?</label>
                         <br>
                         <div class="text-center">
-                            <div class="btn-group" data-toggle="buttons">
+                            <div id="knowTeammate" class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default active">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked=""> YES
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked="">YES
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> NO
+                                    <input type="radio" name="options" id="option2" autocomplete="off">NO
                                 </label>
                             </div>
                         </div>
-
-                        <div id="teamSelectContainer" class="form-group col-lg-6">
-                            <label for="teamSelect">Pick or Create a Team</label><br>
-                            <button id="teamSelect" type="button" class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Teams <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li id="createTeam"><a href="#">Create a Team</a></li>
-                                <li role="separator" class="divider"></li>
-                                {% for team in teams %}
-                                    <li><a href="#">{{ team }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                        <br>
                         <div class="form-group">
-                            <input id="newTeam" type="text" class="form-control" name='newName'
-                                   placeholder="Pick a new team name">
+                            <input id="pickTeammate" type="text" class="form-control" name='pickTeammate'
+                                   placeholder="Teammate's name">
                         </div>
-                        <br><br>
+
+                        <br>
 
                         <div class="form-group">
                             <button type="submit" name="btnSaveEmail" class="btn btn-primary btn-sm pull-right">
