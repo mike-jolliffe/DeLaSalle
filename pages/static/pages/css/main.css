@@ -109,6 +109,11 @@ hr {
     text-decoration: none;
 }
 
+.btn-huge{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
 #contentWrapper {
     min-height: 120%;
 }
