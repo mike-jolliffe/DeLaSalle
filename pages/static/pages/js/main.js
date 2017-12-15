@@ -174,14 +174,12 @@ $(document).ready(function () {
     // Submit post on submit
     $('#addRegistrant').on('submit', function (event) {
         event.preventDefault();
-        console.log("form submitted!");  // sanity check
         add_registrant();
     });
 
 
     // AJAX for posting
     function add_registrant() {
-        console.log("create post is working!"); // sanity check
         $.ajax({
             url: "add_registrant/", // the endpoint
             type: "POST", // http method
@@ -195,9 +193,14 @@ $(document).ready(function () {
 
             // handle a successful response
             success: function (json) {
-                $('#post-text').val(''); // remove the value from the input
-                console.log(json); // log the returned json to the console
+                console.log(json);
+                $('#txtFirstName').val(''); // remove the value from the inputs
+                $('#txtLastName').val('');
+                $('#txtEmail').val('');
+                $('#pickTeammate').val('');
+
                 console.log("success"); // another sanity check
+                $('#registrationResult').html("<span class='text-success bg-success text-center'>You're registered! Now buy and ticket and get practicing!</span>")
             },
 
             // handle a non-successful response
