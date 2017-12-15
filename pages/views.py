@@ -30,10 +30,10 @@ def add_registrant(request):
     if request.method == "POST":
 
         # Update the players database
-        first_name = request.POST.get('txtFirstName')
-        last_name = request.POST.get('txtLastName')
-        email = request.POST.get('txtEmail')
-        teammate = request.POST.get('pickTeammate')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        teammate = request.POST.get('teammate')
 
         # TODO Figure out how to assign to new or existing team
 
@@ -48,4 +48,6 @@ def add_registrant(request):
             Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate)
 
         return HttpResponse("You're registered!")
+    else:
+        return HttpResponse("Uh Oh, no data posted.")
 
