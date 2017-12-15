@@ -200,7 +200,7 @@ $(document).ready(function () {
                 $('#pickTeammate').val('');
 
                 console.log("success"); // another sanity check
-                $('#registrationResult').html("<span class='text-success bg-success text-center'>You're registered! Now buy and ticket and get practicing!</span>")
+                $('#registrationResult').html("<span class='text-success bg-success text-center'>You're registered! Now buy a ticket and get practicing!</span>")
             },
 
             // handle a non-successful response

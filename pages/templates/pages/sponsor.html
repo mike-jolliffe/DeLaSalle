@@ -10,13 +10,24 @@
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'register' %}">Register</a></li>
-                <li class="active"><a href="{% url 'donate' %}">Support A Team</a></li>
+                <li class="active"><a href="{% url 'sponsor' %}">Sponsor A Team</a></li>
                 <li><a href="{% url 'leaderboard' %}">Fundraising Leaderboard</a></li>
                 <li><a href="#myModal" data-toggle="modal">Contact Us</a></li>
             </ul>
         </div>
     </nav>
     <body>
+    <div class="bg2"></div>
+    <div id="sponsorJumbo" class="jumbotron text-center">
+        <h1>Your Sponsorship</h1>
+        <h1>Can Change the Future</h1>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <hr>
+        <br><br><br><br>
+        <a href="{% url 'opportunities' %}">
+            <input type="button" id="registerBtn" class="btn btn-info" value="LEARN MORE">
+        </a>
 
+    </div>
     </body>
 {% endblock %}

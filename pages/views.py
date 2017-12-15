@@ -6,12 +6,10 @@ def home(request):
     return render(request, 'pages/home.html')
 
 def register(request):
-    teams = Team.objects.all()
-    players = Player.objects.all()
-    return render(request, 'pages/register.html', {'teams': teams})
+    return render(request, 'pages/register.html')
 
-def donate(request):
-    return render(request, 'pages/donate.html')
+def sponsor(request):
+    return render(request, 'pages/sponsor.html')
 
 def leaderboard(request):
     return render(request, 'pages/leaderboard.html')
@@ -50,4 +48,7 @@ def add_registrant(request):
         return HttpResponse("You're registered!")
     else:
         return HttpResponse("Uh Oh, no data posted.")
+
+def opportunities(request):
+    return render(request, 'pages/opportunities.html')
 
