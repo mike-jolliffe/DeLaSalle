@@ -12,15 +12,16 @@ $(document).ready(function () {
     //     parallax();
     // });
     //
-    // // If teammate known, display entry field for teammate name
-    // $("#knowTeammate label").click(function () {
-    //     console.log($(this).text());
-    //     if ($(this).children().attr("id") == "option1") {
-    //         $('#pickTeammate').css('display', 'block');
-    //     } else {
-    //         $('#pickTeammate').css('display', 'none');
-    //     }
-    // });
+
+    // If teammate known, display entry field for teammate name
+    $("#knowTeammate label").click(function () {
+        console.log($(this).text());
+        if ($(this).children().attr("id") == "option1") {
+            $('#pickTeammate').css('display', 'block');
+        } else {
+            $('#pickTeammate').css('display', 'none');
+        }
+    });
 
     $(function () {
 
@@ -171,6 +172,7 @@ $(document).ready(function () {
     };
     $('#contactForm').goValidate();
 
+
     // Submit post on submit
     $('#addRegistrant').on('submit', function (event) {
         event.preventDefault();
@@ -204,13 +206,13 @@ $(document).ready(function () {
             },
 
             // handle a non-successful response
-            error: function (xhr, errmsg, err) {
+            error: function (xhr, errmsg) {
                 $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: " + errmsg +
-                    " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                    "<a href='#' class='close'>&times;</a></div>"); // add the error to the dom
                 console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
             }
         });
-    };
+    }
 });
 
 

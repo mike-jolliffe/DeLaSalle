@@ -25,6 +25,7 @@ def contact_us(request):
     return HttpResponse("Message Send Failed")
 
 def add_registrant(request):
+    """Get data from registration form and push into database. Connect players to teams, where teammate known"""
     if request.method == "POST":
 
         # Update the players database
@@ -33,18 +34,24 @@ def add_registrant(request):
         email = request.POST.get('email')
         teammate = request.POST.get('teammate')
 
-        # TODO Figure out how to assign to new or existing team
-
-        teammate_first = teammate.split()[0]
-        teammate_last = teammate.split()[1]
-        if Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).exists():
-            newTeam = Team.objects.create()
-            newTeam.save()
-            Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate, team=newTeam)
-            Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).update(team=newTeam)
+        # If teammate known at registration
+        if teammate:
+            # Get and split teammate name
+            teammate_first = teammate.split()[0]
+            teammate_last = teammate.split()[1]
+            # If teammate name already in database
+            if Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).exists():
+                # Create team and give both players foreign keys to it
+                newTeam = Team.objects.create()
+                newTeam.save()
+                Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate, team=newTeam)
+                Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).update(team=newTeam)
+            # If teammate not in database
+            else:
+                Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate)
+        # If teammate unknown at registration
         else:
             Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate)
-
         return HttpResponse("You're registered!")
     else:
         return HttpResponse("Uh Oh, no data posted.")
