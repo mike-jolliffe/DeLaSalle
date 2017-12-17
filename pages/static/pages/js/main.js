@@ -1,26 +1,26 @@
 $(document).ready(function () {
 
-    // Create parallax effect on homepage jumbotron
-    var jumboHeight = $('.jumbotron').outerHeight();
-
-    function parallax() {
-        var scrolled = $(window).scrollTop();
-        $('.bg').css('height', (jumboHeight - scrolled) + 'px');
-    }
-
-    $(window).scroll(function (e) {
-        parallax();
-    });
-
-    // If teammate known, display entry field for teammate name
-    $("#knowTeammate label").click(function () {
-        console.log($(this).text());
-        if ($(this).children().attr("id") == "option1") {
-            $('#pickTeammate').css('display', 'block');
-        } else {
-            $('#pickTeammate').css('display', 'none');
-        }
-    });
+    // // Create parallax effect on homepage jumbotron
+    // var jumboHeight = $('.jumbotron').outerHeight();
+    //
+    // function parallax() {
+    //     var scrolled = $(window).scrollTop();
+    //     $('.bg').css('height', (jumboHeight - scrolled + 500) + 'px');
+    // }
+    //
+    // $(window).scroll(function (e) {
+    //     parallax();
+    // });
+    //
+    // // If teammate known, display entry field for teammate name
+    // $("#knowTeammate label").click(function () {
+    //     console.log($(this).text());
+    //     if ($(this).children().attr("id") == "option1") {
+    //         $('#pickTeammate').css('display', 'block');
+    //     } else {
+    //         $('#pickTeammate').css('display', 'none');
+    //     }
+    // });
 
     $(function () {
 
