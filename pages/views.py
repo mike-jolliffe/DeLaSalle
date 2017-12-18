@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
 from django.core.mail import send_mail
 from pages.models import Team, Player
+from django.core.serializers import serialize
+
 
 def home(request):
     return render(request, 'pages/home.html')
@@ -12,7 +14,8 @@ def sponsor(request):
     return render(request, 'pages/sponsor.html')
 
 def leaderboard(request):
-    return render(request, 'pages/leaderboard.html')
+    teams = serialize('json', Team.objects.all())
+    return render(request, 'pages/leaderboard.html', {'teams': teams})
 
 def contact_us(request):
     if request.method == "POST":

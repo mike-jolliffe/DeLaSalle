@@ -45,44 +45,55 @@
 
     </style>
     <body>
-        <br><br>
-        <div id="graphic" class="col-lg-8 col-lg-offset-2"></div>
+    <br><br>
+    <div id="graphic" class="col-lg-8 col-lg-offset-2"></div>
 
-            <script>
-            var data = [{
-                    "name": "Team 1",
-                    "value": 340,
-            },
-                {
-                    "name": "Team 2",
-                    "value": 500,
-            },
-                {
-                    "name": "Team 3",
-                    "value": 430,
-            },
-                {
-                    "name": "Team 4",
-                    "value": 550,
-            },
-                {
-                    "name": "Team 5",
-                    "value": 380,
-            },
-                {
-                    "name": "Team 6",
-                    "value": 600,
-            },
-                {
-                    "name": "Team 7",
-                    "value": 300,
-            }];
+    <script>
 
-            //sort bars based on value
-            data = data.sort(function (a, b) {
-                return d3.ascending(a.value, b.value);
-            })
+        function getData(callback) {
+            var json_data = [];
+            //console.log({{ teams|safe }});
+            for (let team of {{ teams|safe }}) {
+                json_data.push(team['fields'])
+            }
 
+            return callback(json_data)
+        }
+
+{#                    var data = [{#}
+{#                            "name": "Team 1",#}
+{#                            "value": 340,#}
+{#                    },#}
+{#                        {#}
+{#                            "name": "Team 2",#}
+{#                            "value": 500,#}
+{#                    },#}
+{#                        {#}
+{#                            "name": "Team 3",#}
+{#                            "value": 430,#}
+{#                    },#}
+{#                        {#}
+{#                            "name": "Team 4",#}
+{#                            "value": 550,#}
+{#                    },#}
+{#                        {#}
+{#                            "name": "Team 5",#}
+{#                            "value": 380,#}
+{#                    },#}
+{#                        {#}
+{#                            "name": "Team 6",#}
+{#                            "value": 600,#}
+{#                    },#}
+{#                        {#}
+{#                            "name": "Team 7",#}
+{#                            "value": 300,#}
+{#                    }];#}
+
+        function graph(input_data) {
+            //sort bars based on funding
+            var data = input_data.sort(function (a, b) {
+                return d3.ascending(a.funding, b.funding);
+            });
             //set up svg using margin conventions - we'll need plenty of room on the left for labels
             var margin = {
                 top: 15,
@@ -103,7 +114,7 @@
             var x = d3.scale.linear()
                 .range([0, width])
                 .domain([0, d3.max(data, function (d) {
-                    return d.value;
+                    return d.funding;
                 })]);
 
             var y = d3.scale.ordinal()
@@ -137,10 +148,11 @@
                 .attr("height", y.rangeBand())
                 .attr("x", 0)
                 .attr("width", function (d) {
-                    return x(d.value);
+                    console.log(input_data);
+                    return x(d.funding);
                 });
 
-            //add a value label to the right of each bar
+            //add a funding label to the right of each bar
             bars.append("text")
                 .attr("class", "label")
                 //y position of the label is halfway down the bar
@@ -149,13 +161,19 @@
                 })
                 //x position is 40 pixels to the left of the bar
                 .attr("x", function (d) {
-                    return x(d.value) - 40;
+                    return x(d.funding) - 40;
                 })
                 .text(function (d) {
-                    return "$" + d.value;
+                    return "$" + d.funding;
                 });
+        }
 
-        </script>
+        getData(function(response) {
+            console.log("Result of getData: " + JSON.stringify(response));
+            graph(response)
+        })
+
+    </script>
 
     </body>
 
