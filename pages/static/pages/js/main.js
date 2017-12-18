@@ -200,9 +200,13 @@ $(document).ready(function () {
                 $('#txtLastName').val('');
                 $('#txtEmail').val('');
                 $('#pickTeammate').val('');
-
-                console.log("success"); // another sanity check
-                $('#registrationResult').html("<span class='text-success bg-success text-center'>You're registered! Now buy a ticket and get practicing!</span>")
+                
+                // Display registration success
+                $('#registrationResult').html("<span class='text-success bg-success text-center'>You're registered! Now buy a ticket and get practicing!</span>");
+                // Clear registration success note
+                setTimeout(function () {
+                    $('#registrationResult').remove('span')
+                }, 6000)
             },
 
             // handle a non-successful response
