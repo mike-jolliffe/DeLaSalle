@@ -50,9 +50,9 @@
 
     <script>
 
+        // Get data from views, push into an array for D3 consumption
         function getData(callback) {
             var json_data = [];
-            //console.log({{ teams|safe }});
             for (let team of {{ teams|safe }}) {
                 json_data.push(team['fields'])
             }
@@ -60,35 +60,7 @@
             return callback(json_data)
         }
 
-{#                    var data = [{#}
-{#                            "name": "Team 1",#}
-{#                            "value": 340,#}
-{#                    },#}
-{#                        {#}
-{#                            "name": "Team 2",#}
-{#                            "value": 500,#}
-{#                    },#}
-{#                        {#}
-{#                            "name": "Team 3",#}
-{#                            "value": 430,#}
-{#                    },#}
-{#                        {#}
-{#                            "name": "Team 4",#}
-{#                            "value": 550,#}
-{#                    },#}
-{#                        {#}
-{#                            "name": "Team 5",#}
-{#                            "value": 380,#}
-{#                    },#}
-{#                        {#}
-{#                            "name": "Team 6",#}
-{#                            "value": 600,#}
-{#                    },#}
-{#                        {#}
-{#                            "name": "Team 7",#}
-{#                            "value": 300,#}
-{#                    }];#}
-
+        // D3 graphing of funding levels by team
         function graph(input_data) {
             //sort bars based on funding
             var data = input_data.sort(function (a, b) {
@@ -111,19 +83,21 @@
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+            // Assign a linear scale for x-axis (funding)
             var x = d3.scale.linear()
                 .range([0, width])
                 .domain([0, d3.max(data, function (d) {
                     return d.funding;
                 })]);
 
+            // Assign ordinal scale for y-axis (team names)
             var y = d3.scale.ordinal()
                 .rangeRoundBands([height, 0], .1)
                 .domain(data.map(function (d) {
                     return d.name;
                 }));
 
-            //make y axis to show bar names
+            // Make y axis to show bar names
             var yAxis = d3.svg.axis()
                 .scale(y)
                 //no tick marks
@@ -139,7 +113,7 @@
                 .enter()
                 .append("g")
 
-            //append rects
+            // Append rects
             bars.append("rect")
                 .attr("class", "bar")
                 .attr("y", function (d) {
@@ -152,7 +126,7 @@
                     return x(d.funding);
                 });
 
-            //add a funding label to the right of each bar
+            // Add a funding label to the right side of each bar
             bars.append("text")
                 .attr("class", "label")
                 //y position of the label is halfway down the bar
@@ -168,6 +142,7 @@
                 });
         }
 
+        // Get data, then graph it
         getData(function(response) {
             console.log("Result of getData: " + JSON.stringify(response));
             graph(response)
