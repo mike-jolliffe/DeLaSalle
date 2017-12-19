@@ -48,7 +48,8 @@ def add_registrant(request):
                 newTeam = Team.objects.create()
                 newTeam.save()
                 Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate, team=newTeam)
-                Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).update(team=newTeam)
+                Player.objects.filter(first_name__iexact=teammate_first, last_name__iexact=teammate_last).update(teammate="{} {}".format(first_name, last_name),
+                                                                                                                 team=newTeam)
             # If teammate not in database
             else:
                 Player.objects.create(first_name=first_name, last_name=last_name, email=email, teammate=teammate)
