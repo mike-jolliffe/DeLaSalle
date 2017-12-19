@@ -33,6 +33,6 @@ class Analyzer:
 
 
 if __name__ == '__main__':
-    getter = Getter('events/41123033099/orders/')
+    getter = Getter('users/me/owned_events/')  # events/41123033099/orders/ TODO add correct event id with this route once event published
     getter.get_data()
     print(getter.response)
