@@ -4,7 +4,7 @@ import requests
 class Getter:
     """This class is used for making API calls to different Eventbrite endpoints, and temporarily storing the data"""
     def __init__(self, endpoint):
-        self.url = 'https://www.eventbriteapi.com/v3/users/me/' + endpoint
+        self.url = 'https://www.eventbriteapi.com/v3/' + endpoint
         self.response = []
 
     def get_data(self, **kwargs):
@@ -33,6 +33,6 @@ class Analyzer:
 
 
 if __name__ == '__main__':
-    getter = Getter('owned_events/')
+    getter = Getter('events/41123033099/orders/')
     getter.get_data()
     print(getter.response)
