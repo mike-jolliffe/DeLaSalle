@@ -22,17 +22,49 @@
     <body>
     <div id="fb-root"></div>
         <!--Facebook share plug-in -->
-        <script>(function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            $(document).ready(function() {
+
+
+	            var $slides = $('[data-slides]');
+	            var images = $slides.data('slides');
+	            var count = images.length;
+	            console.log(count);
+	            var slideshow = function() {
+		            $slides
+			            .css('background', 'linear-gradient(rgba(150, 150, 150, 0.5),\
+                                                            rgba(150, 150, 150, 0.5)\
+                                            ),\
+                                            url("' + images[Math.floor(Math.random() * count)] + '") no-repeat center')
+			            .show(0, function() {
+				            setTimeout(slideshow, 5000);
+			            });
+	            };
+
+	            slideshow();
+
+            });
+
         </script>
     <div class="jumbotron text-center">
-        <div class="bg"></div>
+        <div class="bg"
+             data-slides = '[
+                "/static/pages/img/carousel1.jpg",
+                "/static/pages/img/carousel2.jpg",
+                "/static/pages/img/carousel3.jpg",
+                "/static/pages/img/carousel4.jpg",
+                "/static/pages/img/carousel5.jpg",
+                "/static/pages/img/carousel6.jpg"
+             ]'></div>
         <h1>De La Salle North Catholic High School</h1>
         <h1>Inaugural Cornhole Tournament</h1>
         <br><br><br><br><br>
