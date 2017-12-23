@@ -14,7 +14,7 @@ def sponsor(request):
     return render(request, 'pages/sponsor.html')
 
 def leaderboard(request):
-    teams = serialize('json', Team.objects.all())
+    teams = serialize('json', Team.objects.exclude(funding__isnull=True))
     return render(request, 'pages/leaderboard.html', {'teams': teams})
 
 def contact_us(request):
