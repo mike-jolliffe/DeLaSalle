@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'add_registrant/$', page_views.add_registrant, name='add_registrant'),
     url(r'sponsor/$', page_views.sponsor, name='sponsor'),
     url(r'sponsor/opportunities$', page_views.opportunities, name='opportunities'),
+url(r'support/$', page_views.support, name='support'),
     url(r'leaderboard/$', page_views.leaderboard, name='leaderboard'),
     url(r'contact_us/$', page_views.contact_us, name='contact_us')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
