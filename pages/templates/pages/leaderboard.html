@@ -54,9 +54,12 @@
         function getData(callback) {
             var json_data = [];
             for (let team of {{ teams|safe }}) {
+                team['fields']['funding'] = team['fields']['corporate_funds'] + team['fields']['eventbrite_funds'];
+                console.log(team);
                 json_data.push(team['fields'])
             }
 
+            console.log(json_data);
             return callback(json_data)
         }
 
