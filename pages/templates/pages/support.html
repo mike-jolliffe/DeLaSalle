@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://www.delasallenorth.org/">DLSNC</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'sponsor' %}">Sponsor A Team</a></li>
+                <li class="active"><a href="{% url 'support' %}">Support a Player</a></li>
+                <li><a href="{% url 'leaderboard' %}">Fundraising Leaderboard</a></li>
+                <li><a href="#myModal" data-toggle="modal">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <body>
+    <br><br><br><br><br><br><br>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-sm-10 col-sm-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-default text-center"><strong>WHO ARE YOU SUPPORTING?</strong>
+                </div>
+                <div class="panel-body">
+                    <form id="supportPlayer" class="form" action="/support/addSupporter/"
+                                  target="_blank" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="donorName">Your Name</label>
+                            <input id="donorName" name="donorName" type="text" class="form-control"
+                                   placeholder="Sally Supporter">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="doneeName">Name of Person You're Supporting</label>
+                            <input id="doneeName" name="doneeName" type="text" class="form-control"
+                                   placeholder="Billy Beanbags">
+                        </div>
+                        <br>
+                        <div class="panel-body text-center">
+                            <button id="buyBtn" type="submit" name="buyBtn" class="btn btn-primary btn-lg">
+                                Make Donation
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('buyBtn').on('click', function() {
+            console.log($('donorName').val())
+        })
+    </script>
+    </body>
+{% endblock %}

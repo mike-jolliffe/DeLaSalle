@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import redirect, render, HttpResponse
 from django.core.mail import send_mail
 from pages.models import Team, Player
 from django.core.serializers import serialize
@@ -15,6 +15,14 @@ def sponsor(request):
 
 def support(request):
     return render(request, 'pages/support.html')
+
+def addSupporter(request):
+    if request.method == 'POST':
+        supporter_name = request.POST.get('donorName')
+        player_name = request.POST.get('doneeName')
+        print(supporter_name, player_name)  #TODO get this info into model. Ultimately need to connect to team
+
+    return redirect('https://www.eventbrite.com/e/first-annual-de-la-salle-north-catholic-high-school-cornhole-tournament-tickets-41440379290?aff=es2')
 
 def leaderboard(request):
     teams = serialize('json', Team.objects.exclude(id__in=Team.objects.filter(eventbrite_funds__isnull=True,
