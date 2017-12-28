@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Team(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     eventbrite_funds = models.FloatField(max_length=10, null=True, blank=True)
