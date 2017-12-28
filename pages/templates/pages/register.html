@@ -84,8 +84,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading panel-heading-default text-center"><strong>STEP TWO: BUY A TICKET</strong>
                 </div>
-                <div class="panel-body">
-                    <div id="eventbrite-widget-container-41123033099"></div>
+                <div class="panel-body text-center">
+                    <form action="https://www.eventbrite.com/e/first-annual-de-la-salle-north-catholic-high-school-cornhole-tournament-tickets-41440379290?ref=elink"
+                          target="_blank">
+                        <button id="buyBtn" type="submit" name="buyBtn" class="btn btn-primary btn-lg">
+                            Buy Ticket
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -106,7 +111,7 @@
             iframeContainerHeight: 500,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
             onOrderComplete: exampleCallback  // Method called when an order has successfully completed
         });
-        
+
     </script>
 
     </body>

@@ -14,7 +14,9 @@ def sponsor(request):
     return render(request, 'pages/sponsor.html')
 
 def leaderboard(request):
-    teams = serialize('json', Team.objects.exclude(funding__isnull=True))
+    teams = serialize('json', Team.objects.exclude(id__in=Team.objects.filter(eventbrite_funds__isnull=True,
+                                                                       corporate_funds__isnull=True)
+                                                   ))
     return render(request, 'pages/leaderboard.html', {'teams': teams})
 
 def contact_us(request):
