@@ -41,10 +41,13 @@
 	            console.log(count);
 	            var slideshow = function() {
 		            $slides
-			            .css('background', 'linear-gradient(rgba(150, 150, 150, 0.5),\
+			            .css({
+                            'background': 'linear-gradient(rgba(150, 150, 150, 0.5),\
                                                             rgba(150, 150, 150, 0.5)\
                                             ),\
-                                            url("' + images[Math.floor(Math.random() * count)] + '") no-repeat center')
+                                            url("' + images[Math.floor(Math.random() * count)] + '") no-repeat center',
+                            'background-size': 'cover'
+                        })
 			            .show(0, function() {
 				            setTimeout(slideshow, 5000);
 			            });
@@ -58,12 +61,12 @@
     <div class="jumbotron text-center">
         <div class="bg"
              data-slides = '[
-                "/static/pages/img/carousel1.jpg",
-                "/static/pages/img/carousel2.jpg",
-                "/static/pages/img/carousel3.jpg",
-                "/static/pages/img/carousel4.jpg",
-                "/static/pages/img/carousel5.jpg",
-                "/static/pages/img/carousel6.jpg"
+                "/static/pages/img/newcarousel1.png",
+                "/static/pages/img/newcarousel2.png",
+                "/static/pages/img/newcarousel3.png",
+                "/static/pages/img/newcarousel4.png",
+                "/static/pages/img/newcarousel5.png",
+                "/static/pages/img/newcarousel6.png"
              ]'></div>
         <h1>De La Salle North Catholic High School</h1>
         <h1>Inaugural Cornhole Tournament</h1>
