@@ -22,8 +22,8 @@ h1 .btn {
 
 [data-slides] {
     background: linear-gradient(
-					rgba(150, 150, 150, 0.5),
-					rgba(150, 150, 150, 0.5)
+					rgba(44, 26, 8, 0.4),
+					rgba(44, 26, 8, 0.4)
 				),
 				url('/static/pages/img/carousel1.jpg') no-repeat center;
     position: fixed;
