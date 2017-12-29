@@ -18,3 +18,11 @@ class Player(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
+
+class Supporter(models.Model):
+    supporter_name = models.CharField(max_length=100)
+    player_name = models.CharField(max_length=100)
+    player = models.ForeignKey(Player, related_name='supporters', blank=True, null=True)
+
+    def __str__(self):
+        return "{}".format(self.supporter_name)

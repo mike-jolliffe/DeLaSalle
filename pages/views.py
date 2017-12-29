@@ -20,7 +20,7 @@ def addSupporter(request):
     if request.method == 'POST':
         supporter_name = request.POST.get('donorName')
         player_name = request.POST.get('doneeName')
-        print(supporter_name, player_name)  #TODO get this info into model. Ultimately need to connect to team
+        print(supporter_name, player_name)  # TODO get this info into model. Ultimately need to connect to team
 
     return redirect('https://www.eventbrite.com/e/first-annual-de-la-salle-north-catholic-high-school-cornhole-tournament-tickets-41440379290?aff=es2')
 
