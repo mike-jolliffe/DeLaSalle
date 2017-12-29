@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, HttpResponse
 from django.core.mail import send_mail
-from pages.models import Team, Player
+from pages.models import Team, Player, Supporter
 from django.core.serializers import serialize
 
 
@@ -20,6 +20,10 @@ def addSupporter(request):
     if request.method == 'POST':
         supporter_name = request.POST.get('donorName')
         player_name = request.POST.get('doneeName')
+        player_first = player_name.split()[0]
+        player_last = player_name.split()[1]
+        player = Player.objects.filter(first_name__iexact=player_first, last_name__iexact=player_last)[0]
+        Supporter.objects.create(supporter_name=supporter_name, player_name=player_name, player=player)
         print(supporter_name, player_name)  # TODO get this info into model. Ultimately need to connect to team
 
     return redirect('https://www.eventbrite.com/e/first-annual-de-la-salle-north-catholic-high-school-cornhole-tournament-tickets-41440379290?aff=es2')
