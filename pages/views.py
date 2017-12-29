@@ -22,7 +22,10 @@ def addSupporter(request):
         player_name = request.POST.get('doneeName')
         player_first = player_name.split()[0]
         player_last = player_name.split()[1]
-        player = Player.objects.filter(first_name__iexact=player_first, last_name__iexact=player_last)[0]
+        try:
+            player = Player.objects.filter(first_name__iexact=player_first, last_name__iexact=player_last)[0]
+        except:
+            player = Player.objects.filter(last_name__icontains=player_last)[0]
         Supporter.objects.create(supporter_name=supporter_name, player_name=player_name, player=player)
         print(supporter_name, player_name)  # TODO get this info into model. Ultimately need to connect to team
 
