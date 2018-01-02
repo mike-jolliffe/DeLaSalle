@@ -108,7 +108,7 @@ except ImportError:
     pass
 
 STATICFILE_DIRS = [os.path.join(BASE_DIR, "pages", "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "www", "static")
 STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
