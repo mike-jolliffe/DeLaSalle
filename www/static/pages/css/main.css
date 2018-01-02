@@ -1,0 +1,141 @@
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+    font-family: Lato, sans-serif;
+    background-color: #083a81;
+}
+
+h1 .btn {
+	font-size:30px;
+}
+
+.navbar {
+    margin: 0;
+    border-radius: 0 !important;
+}
+
+[data-slides] {
+    background: linear-gradient(
+					rgba(44, 26, 8, 0.4),
+					rgba(44, 26, 8, 0.4)
+				),
+				url('/static/pages/img/carousel1.jpg') no-repeat center;
+    position: fixed;
+}
+
+.bg {
+  width: 100%;
+  height: 100vh; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.bg2 {
+    background: linear-gradient(
+					rgba(44, 26, 8, 0.4),
+					rgba(44, 26, 8, 0.4)
+				),
+				url('/static/pages/img/students.png') no-repeat center;
+  position: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+#sponsorJumbo {
+    padding-top: 10px;
+}
+
+hr {
+    color: white;
+    width: 60vw;
+}
+
+.panel-default > .panel-heading-custom {
+    background: #083a81;
+    color: #fff;
+}
+
+.col-lg-3, .col-sm-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.jumbotron {
+  height: 100vh;
+  color: white;
+  text-shadow: #444 0 1px 1px;
+  background:transparent;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.container {
+    width: 100%;
+    background-color: #cccccc;
+}
+
+.sponsorImage {
+    height: 300px;
+    background-image: url('/static/pages/img/placeholder.jpg');
+    background-size: cover;
+}
+
+#sponsorPanel {
+    margin-left: 10px !important;
+}
+
+.navbar-footer {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-brand-foot {
+    float:none;
+    color: #aaaaaa;
+    font-size: 1.1em;
+}
+
+.navbar-brand-foot:hover {
+    color: #eeeeee;
+    text-decoration: none;
+}
+
+.btn-huge{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+#contentWrapper {
+    min-height: 120%;
+}
+
+#newTeam {
+    display: none;
+}
+
+#teamSelectContainer {
+    padding-left: 0;
+}
+
+#shareContainer {
+    margin-right: 10%;
+}
+
+#shareBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
