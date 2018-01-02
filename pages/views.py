@@ -5,16 +5,16 @@ from django.core.serializers import serialize
 
 
 def home(request):
-    return render(request, 'pages/templates/home.html')
+    return render(request, 'home.html')
 
 def register(request):
-    return render(request, 'pages/templates/register.html')
+    return render(request, 'register.html')
 
 def sponsor(request):
-    return render(request, 'pages/templates/sponsor.html')
+    return render(request, 'sponsor.html')
 
 def support(request):
-    return render(request, 'pages/templates/support.html')
+    return render(request, 'support.html')
 
 def addSupporter(request):
     if request.method == 'POST':
@@ -35,7 +35,7 @@ def leaderboard(request):
     teams = serialize('json', Team.objects.exclude(id__in=Team.objects.filter(eventbrite_funds__isnull=True,
                                                                        corporate_funds__isnull=True)
                                                    ))
-    return render(request, 'pages/templates/leaderboard.html', {'teams': teams})
+    return render(request, 'leaderboard.html', {'teams': teams})
 
 def contact_us(request):
     if request.method == "POST":
@@ -81,5 +81,5 @@ def add_registrant(request):
         return HttpResponse("Uh Oh, no data posted.")
 
 def opportunities(request):
-    return render(request, 'pages/templates/opportunities.html')
+    return render(request, 'opportunities.html')
 
