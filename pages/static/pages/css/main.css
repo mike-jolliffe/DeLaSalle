@@ -91,6 +91,13 @@ hr {
     background-size: cover;
 }
 
+.sponsorImage1 {
+    height: 280px;
+    background-image: url('/static/pages/img/HK-Law-final.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 #sponsorPanel {
     margin-left: 10px !important;
 }
