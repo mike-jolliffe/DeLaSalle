@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class Sponsor(models.Model):
+    company_name = models.CharField(max_length=100, null=True)
+    promo = models.CharField(max_length=100, null=True)
+    num_teams = models.IntegerField(null=True)
+
 class Team(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     eventbrite_funds = models.FloatField(max_length=10, null=True, blank=True)
@@ -27,8 +32,3 @@ class Supporter(models.Model):
 
     def __str__(self):
         return "{}".format(self.supporter_name)
-
-class Sponsor(models.Model):
-    company_name = models.CharField(max_length=100, null=True)
-    promo = models.CharField(max_length=100, null=True)
-    num_teams = models.IntegerField(null=True)
