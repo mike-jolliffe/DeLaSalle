@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pages.models import Team, Player, Supporter
+from pages.models import Team, Player, Sponsor, Supporter
 
 
 admin.site.register(Player)
@@ -10,3 +10,5 @@ class TeamAdmin(admin.ModelAdmin):
 admin.site.register(Team, TeamAdmin)
 
 admin.site.register(Supporter)
+
+admin.site.register(Sponsor)
