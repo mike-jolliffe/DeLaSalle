@@ -224,14 +224,15 @@ $(document).ready(function () {
 
             // handle a successful response
             success: function (json) {
-                var data = json;
+                var data = JSON.parse(json);
                 console.log(data.numTeams);
+                // Hide the promo code field
                 $('#promoEnter').css('display', 'none'); // remove the value from the inputs
-                // Hide the promo code field, replace with Team registration form
+                // Display the Team registration form
                 $('#registerTeams').removeClass('hidden');
 
                 // Trying to log the number of teams
-                for (i = 0; i < json.numTeams; i++) {
+                for (i = 0; i < data.numTeams; i++) {
                     console.log(i)
                 }
             },
