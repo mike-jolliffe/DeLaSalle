@@ -1,6 +1,7 @@
+import json
 from django.shortcuts import redirect, render, HttpResponse
 from django.core.mail import send_mail
-from pages.models import Team, Player, Supporter
+from pages.models import Team, Player, Sponsor, Supporter
 from django.core.serializers import serialize
 
 
@@ -89,6 +90,15 @@ def corporate_signup(request):
 def check_promo(request):
     if request.method == "POST":
         promo_code = request.POST.get('promo_code')
-        print(promo_code)
 
-        return HttpResponse('Got the promo code!')
+        response_dict = {'validPromo': False, 'numTeams': 0}
+        # Check promo code against what was entered in database
+        if Sponsor.objects.filter(promo=promo_code).exists():
+            response_dict['validPromo'] = True
+            response_dict['numTeams'] = Sponsor.objects.get(promo=promo_code).num_teams
+
+        # If promo code matches, allow registration
+
+        # If not, prompt user that promo code is wrong, try again.
+
+        return HttpResponse(json.dumps(response_dict))

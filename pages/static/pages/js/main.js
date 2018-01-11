@@ -225,7 +225,7 @@ $(document).ready(function () {
             // handle a successful response
             success: function (json) {
                 console.log(json);
-                $('#promoCode').val(''); // remove the value from the inputs
+                $('#promoEnter').css('display', 'none'); // remove the value from the inputs
 
                 // Hide the promo code field, replace with Team registration form
             },
