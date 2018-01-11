@@ -47,17 +47,73 @@
     </div>
     <br>
     <br>
-    <div class="row">
+    <div id="registerTeams" class="row hidden">
         <div class="col-lg-6 col-lg-offset-3 col-sm-10 col-sm-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading panel-heading-default text-center"><strong>STEP TWO: BUY A TICKET</strong>
+                <div class="panel-heading panel-heading-default text-center"><strong>REGISTER TEAMS</strong>
                 </div>
-                <div class="panel-body text-center">
-                    <form action="https://www.eventbrite.com/e/first-annual-de-la-salle-north-catholic-high-school-cornhole-tournament-tickets-41440379290?ref=elink"
-                          target="_blank">
-                        <button id="buyBtn" type="submit" name="buyBtn" class="btn btn-primary btn-lg">
-                            Buy Ticket
-                        </button>
+                <div class="panel-body">
+                    <form id="registerTeams" class="form" action="/register_teams/" method="post">
+                        {% csrf_token %}
+                        <span id="registerTeam">
+                            <div class="form-group">
+                                <label class="pull-left text-primary" for="Team">Team Name</label>
+                                <input name="teamName" type="text" class="form-control"
+                                       placeholder="Team Name">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label class="text-primary">Player 1 info</label>
+                            </div>
+                            <div class="row text-center">
+                                <span class="form-group">
+                                    <div class="col-sm-1">
+                                        <label for="nameInput" class="inlineLabel">Name</label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" name="p1Name" placeholder="John Doe" required="">
+                                    </div>
+                                </span>
+                                <div class="form-group">
+                                    <div class="col-sm-1">
+                                        <label for="emailInput" class="inlineLabel">Email</label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" name="p1Email" placeholder="john@example.com" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="form-group">
+                                <label class="text-primary">Player 2 info</label>
+                            </div>
+                            <div class="row text-center">
+                                <span class="form-group">
+                                    <div class="col-sm-1">
+                                        <label for="nameInput" class="inlineLabel">Name</label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" name="p2Name" placeholder="John Doe" required="">
+                                    </div>
+                                </span>
+                                <div class="form-group">
+                                    <div class="col-sm-1">
+                                        <label for="emailInput" class="inlineLabel">Email</label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" name="p2Email" placeholder="john@example.com" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="text-center">
+                                <button id="registerTeamsBtn" type="submit" name="registerTeamsBtn" class="btn btn-primary btn-lg">
+                                    Register
+                                </button>
+                            </div>
+                            <br>
+                        </span>
                     </form>
                 </div>
             </div>
