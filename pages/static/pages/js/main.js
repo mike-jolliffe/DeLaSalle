@@ -1,18 +1,5 @@
 $(document).ready(function () {
 
-    // // Create parallax effect on homepage jumbotron
-    // var jumboHeight = $('.jumbotron').outerHeight();
-    //
-    // function parallax() {
-    //     var scrolled = $(window).scrollTop();
-    //     $('.bg').css('height', (jumboHeight - scrolled + 500) + 'px');
-    // }
-    //
-    // $(window).scroll(function (e) {
-    //     parallax();
-    // });
-    //
-
     // If teammate known, display entry field for teammate name
     $("#knowTeammate label").click(function () {
         console.log($(this).text());
@@ -180,7 +167,7 @@ $(document).ready(function () {
     });
 
 
-    // AJAX for posting
+    // AJAX for posting from register.html
     function add_registrant() {
         $.ajax({
             url: "add_registrant/", // the endpoint
@@ -207,6 +194,40 @@ $(document).ready(function () {
                 setTimeout(function () {
                     $('#registrationResult').empty()
                 }, 6000)
+            },
+
+            // handle a non-successful response
+            error: function (xhr, errmsg) {
+                $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: " + errmsg +
+                    "<a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+            }
+        });
+    }
+
+    // Submit post on submit
+    $('#check_promo').on('submit', function (event) {
+        event.preventDefault();
+        check_promo();
+    });
+
+
+    // AJAX for posting from register.html
+    function check_promo() {
+        $.ajax({
+            url: "sponsor/check_promo/", // the endpoint
+            type: "POST", // http method
+            // data sent with the post request
+            data: {
+                promo_code: $('#promoCode').val()
+            },
+
+            // handle a successful response
+            success: function (json) {
+                console.log(json);
+                $('#promoCode').val(''); // remove the value from the inputs
+
+                // Hide the promo code field, replace with Team registration form
             },
 
             // handle a non-successful response

@@ -83,3 +83,12 @@ def add_registrant(request):
 def opportunities(request):
     return render(request, 'opportunities.html')
 
+def corporate_signup(request):
+    return render(request, 'corporate_signup.html')
+
+def check_promo(request):
+    if request.method == "POST":
+        promo_code = request.POST.get('promo_code')
+        print(promo_code)
+
+        return HttpResponse('Got the promo code!')
