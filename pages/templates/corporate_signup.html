@@ -24,7 +24,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading panel-heading-default text-center"><strong>ENTER YOUR PROMO CODE</strong></div>
                 <div class="panel-body">
-                    <form id="check_promo" class="form" action="/sponsor/check_promo/" method="post">
+                    <form id="checkPromo" class="form" action="/check_promo/" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <input id="promoCode" name="promoCode" type="text" class="form-control"
@@ -35,7 +35,7 @@
 
                         <div class="form-group">
                             <span id="promoResult" class="col-lg-8 col-lg-offset-2"></span>
-                            <button type="submit" name="btnpromoResult" class="btn btn-primary btn-sm pull-right">
+                            <button type="submit" name="promoResult" class="btn btn-primary btn-sm pull-right">
                                 Submit
                             </button>
                         </div>

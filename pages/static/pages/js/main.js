@@ -206,7 +206,7 @@ $(document).ready(function () {
     }
 
     // Submit post on submit
-    $('#check_promo').on('submit', function (event) {
+    $('#checkPromo').on('submit', function (event) {
         event.preventDefault();
         check_promo();
     });
@@ -215,7 +215,7 @@ $(document).ready(function () {
     // AJAX for posting from register.html
     function check_promo() {
         $.ajax({
-            url: "sponsor/check_promo/", // the endpoint
+            url: "check_promo/", // the endpoint
             type: "POST", // http method
             // data sent with the post request
             data: {
