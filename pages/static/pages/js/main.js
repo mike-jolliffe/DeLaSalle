@@ -225,16 +225,22 @@ $(document).ready(function () {
             // handle a successful response
             success: function (json) {
                 var data = JSON.parse(json);
-                console.log(data.numTeams);
-                // Hide the promo code field
-                $('#promoEnter').css('display', 'none'); // remove the value from the inputs
-                // Display the Team registration form
-                $('#registerTeams').removeClass('hidden');
-
-                // Trying to log the number of teams
-                for (i = 0; i < data.numTeams; i++) {
-                    console.log(i)
+                if (data.validPromo === true) {
+                    // Hide the promo code field
+                    $('#promoEnter').css('display', 'none'); // remove the value from the inputs
+                    // Display the Team registration form
+                    $('#registerTeams').removeClass('hidden');
+                    // Trying to log the number of teams
+                    for (i = 0; i < data.numTeams; i++) {
+                        console.log(i)
+                    }
+                } else {
+                    // Clear the promo code field
+                    $('#promoCode').val('');
+                    // Show danger-text statement about not valid promo
+                    $('#promoResult').html("<span class='text-danger bg-danger text-center'>Invalid promo code. Please try again!</span>");
                 }
+
             },
 
             // handle a non-successful response
