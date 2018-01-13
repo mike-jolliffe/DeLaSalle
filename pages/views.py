@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render, HttpResponse
 from django.core.mail import send_mail
 from pages.models import Team, Player, Sponsor, Supporter
 from django.core.serializers import serialize
+from pages.helpers import Getter, Analyzer
 
 
 def home(request):
@@ -33,6 +34,24 @@ def addSupporter(request):
     return redirect('https://www.eventbrite.com/e/first-annual-de-la-salle-north-catholic-high-school-cornhole-tournament-tickets-41440379290?aff=es2')
 
 def leaderboard(request):
+    # Hit Eventbrite API endpoint for orders
+    getter = Getter('events/41440379290/orders/')
+    getter.get_data()
+
+    # Parse API response
+    analyzer = Analyzer()
+    order_list = analyzer.get_purchases(getter.response)
+
+    for order in order_list:
+        # Get team_id for given player
+        try:
+            print("{} {}".format(order["first_name"], order["last_name"]))
+            # Get into Team object and grab its id
+            team_id = Player.objects.get(first_name__istartswith=order["first_name"][0:2], last_name__iexact=order["last_name"]).team.id
+            print("Team id".format(team_id))
+        except:
+            print("Coundn't find matching player name")
+
     teams = serialize('json', Team.objects.exclude(id__in=Team.objects.filter(eventbrite_funds__isnull=True,
                                                                        corporate_funds__isnull=True)
                                                    ))

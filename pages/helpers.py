@@ -20,27 +20,26 @@ class Getter:
 class Analyzer:
     """This class parses an API response to get particular information"""
 
-    def get_attendees(self, raw_response):
+    def get_purchases(self, raw_response):
         """
-        Gets attendees by name, order_id
-        :return: dictionary
+        Parses attendees from dict by name, order_id, total purchase value
+        :return: List[dictionary]
         """
 
+        order_data = []
         # Get Attendees list
         for order in raw_response[0]['orders']:
             # Get specific info for each participant
-            print("First name: {}\
-                   Last name: {}\
-                   Order Id: {}\
-                   Total value: {}".format(order["first_name"], order["last_name"], order["id"], order["costs"]["base_price"]["major_value"]))
-            print("-----------------")
-
-        # Orders
-
+            data = {"first_name": order["first_name"],
+                    "last_name": order["last_name"],
+                    "order_id": order["id"],
+                    "order_value": order["costs"]["base_price"]["major_value"]}
+            order_data.append(data)
+        return order_data
 
 
 if __name__ == '__main__':
     getter = Getter('events/41440379290/orders/')  # events/41440379290/orders/ TODO add correct event id with this route once event published
     getter.get_data()
     analyzer = Analyzer()
-    analyzer.get_attendees(getter.response)
+    print(analyzer.get_purchases(getter.response))
