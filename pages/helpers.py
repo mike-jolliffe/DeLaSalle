@@ -1,6 +1,5 @@
-from local_settings import TOKEN
+import os
 import requests
-import json
 
 class Getter:
     """This class is used for making API calls to different Eventbrite endpoints, and temporarily storing the data"""
@@ -12,7 +11,7 @@ class Getter:
         """Send API request to Strava endpoint"""
         package = {k: v for k, v in kwargs.items()}
         package = {k: ','.join(v) if isinstance(v, list) else v for k, v in package.items()}
-        headers = {"Authorization": "Bearer {}".format(TOKEN)}
+        headers = {"Authorization": "Bearer {}".format(os.environ['TOKEN'])}
         resp = requests.get(self.url, params=package, headers=headers)
 
 
@@ -29,8 +28,7 @@ class Analyzer:
 
         # Get Attendees list
         for order in raw_response[0]['orders']:
-            # First Name, Last Name, Order Id, total value
-
+            # Get specific info for each participant
             print("First name: {}\
                    Last name: {}\
                    Order Id: {}\
