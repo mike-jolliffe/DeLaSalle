@@ -42,19 +42,28 @@ def leaderboard(request):
     analyzer = Analyzer()
     order_list = analyzer.get_purchases(getter.response)
 
+    # Create holder for funds by team
+    team_funding = {}
+
     for order in order_list:
-        # Get team_id for given player
+        # Link total funding to team
         try:
-            print("{} {}".format(order["first_name"], order["last_name"]))
             # Get into Team object and grab its id
             team_id = Player.objects.get(first_name__istartswith=order["first_name"][0:2], last_name__iexact=order["last_name"]).team.id
-            print("Team id".format(team_id))
+            # Associate that team id to total funding across all orders
+            team_funding.setdefault(team_id, []).append(float(order["order_value"]))
         except:
             print("Coundn't find matching player name")
+    # Push total Eventbrite funding by team into db
+    for team, value in team_funding.items():
+        # Grab the team by primary key, update it with eventbrite funding level
+        Team.objects.filter(pk=team).update(eventbrite_funds=sum(value))
 
+    # Create context dict of non-null Team objects
     teams = serialize('json', Team.objects.exclude(id__in=Team.objects.filter(eventbrite_funds__isnull=True,
                                                                        corporate_funds__isnull=True)
                                                    ))
+    # Pass context dict into leaderboard.html and render
     return render(request, 'leaderboard.html', {'teams': teams})
 
 def contact_us(request):
