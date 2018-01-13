@@ -1,5 +1,6 @@
 from local_settings import TOKEN
 import requests
+import json
 
 class Getter:
     """This class is used for making API calls to different Eventbrite endpoints, and temporarily storing the data"""
@@ -20,19 +21,28 @@ class Getter:
 class Analyzer:
     """This class parses an API response to get particular information"""
 
-    def get_attendees(self):
+    def get_attendees(self, raw_response):
         """
         Gets attendees by name, order_id
         :return: dictionary
         """
 
-        # Attendees
+        # Get Attendees list
+        for order in raw_response[0]['orders']:
+            # First Name, Last Name, Order Id, total value
+
+            print("First name: {}\
+                   Last name: {}\
+                   Order Id: {}\
+                   Total value: {}".format(order["first_name"], order["last_name"], order["id"], order["costs"]["base_price"]["major_value"]))
+            print("-----------------")
 
         # Orders
 
 
 
 if __name__ == '__main__':
-    getter = Getter('users/me/owned_events/')  # events/41123033099/orders/ TODO add correct event id with this route once event published
+    getter = Getter('events/41440379290/orders/')  # events/41440379290/orders/ TODO add correct event id with this route once event published
     getter.get_data()
-    print(getter.response)
+    analyzer = Analyzer()
+    analyzer.get_attendees(getter.response)
