@@ -130,7 +130,7 @@ def register_teams(request):
 
             # Add player two to the database, connect to p1 and team
             Player.objects.create(first_name=p2_first, last_name=p2_last, email=p2_email, teammate=p1, team=newTeam)
-    return HttpResponse('Success')
+    return render(request, 'success.html')
 
 
 

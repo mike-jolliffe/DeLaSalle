@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'sponsor/opportunities$', page_views.opportunities, name='opportunities'),
     url(r'corporate_signup/$', page_views.corporate_signup, name='corporate_signup'),
     url(r'check_promo/$', page_views.check_promo, name='check_promo'),
+    url(r'register_teams/$', page_views.register_teams, name='register_teams'),
     url(r'support/$', page_views.support, name='support'),
     url(r'support/addSupporter', page_views.addSupporter, name='addSupporter'),
     url(r'leaderboard/$', page_views.leaderboard, name='leaderboard'),

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://www.delasallenorth.org/">DLSNC</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li class="active"><a href="{% url 'sponsor' %}">Sponsor A Team</a></li>
+                <li><a href="{% url 'support' %}">Support a Player</a></li>
+                <li><a href="{% url 'leaderboard' %}">Fundraising Leaderboard</a></li>
+                <li><a href="#myModal" data-toggle="modal">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <body>
+    <br>
+    <div id="thankYou" class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-sm-10 col-sm-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h2 class="text-success">Thank you! Your teams are successfully registered!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
