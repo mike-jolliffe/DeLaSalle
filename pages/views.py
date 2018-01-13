@@ -102,3 +102,13 @@ def check_promo(request):
         # If not, prompt user that promo code is wrong, try again.
 
         return HttpResponse(json.dumps(response_dict))
+
+def register_teams(request):
+    if request.method == "POST":
+        for i in range(len(request.POST.get('teamName'))):
+            print(request.POST.get('teamName')[i])
+            print(request.POST.get('p1Name')[i])
+            print(request.POST.get('p1Email')[i])
+            print(request.POST.get('p2Name')[i])
+            print(request.POST.get('p2Email')[i])
+

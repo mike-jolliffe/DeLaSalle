@@ -231,7 +231,7 @@ $(document).ready(function () {
                     // Display the Team registration form
                     $('#registerTeams').removeClass('hidden');
                     // For number of teams sponsored
-                    for (i = 0; i < data.numTeams; i++) {
+                    for (i = 0; i < data.numTeams - 1; i++) {
                         // Create a separate sign-up div
                         duplicate(i);
 
