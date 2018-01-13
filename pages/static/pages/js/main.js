@@ -230,9 +230,11 @@ $(document).ready(function () {
                     $('#promoEnter').css('display', 'none'); // remove the value from the inputs
                     // Display the Team registration form
                     $('#registerTeams').removeClass('hidden');
-                    // Trying to log the number of teams
+                    // For number of teams sponsored
                     for (i = 0; i < data.numTeams; i++) {
-                        console.log(i)
+                        // Create a separate sign-up div
+                        duplicate(i);
+
                     }
                 } else {
                     // Clear the promo code field
@@ -250,6 +252,13 @@ $(document).ready(function () {
                 console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
             }
         });
+    }
+
+    function duplicate(i) {
+        var original = document.getElementById('registerTeam' + i);
+        var clone = original.cloneNode(true); // "deep" clone
+        clone.id = "registerTeam" + ++i; // there can only be one element with an ID
+        original.parentNode.prepend(clone);
     }
 });
 

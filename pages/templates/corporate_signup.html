@@ -55,7 +55,7 @@
                 <div class="panel-body">
                     <form id="registerTeams" class="form" action="/register_teams/" method="post">
                         {% csrf_token %}
-                        <span id="registerTeam">
+                        <span id="registerTeam0" class="row-bordered">
                             <div class="form-group">
                                 <label class="pull-left text-primary" for="Team">Team Name</label>
                                 <input name="teamName" type="text" class="form-control"
@@ -107,13 +107,13 @@
                             </div>
                             <br>
                             <br>
-                            <div class="text-center">
+                        </span>
+                        <div class="text-center">
                                 <button id="registerTeamsBtn" type="submit" name="registerTeamsBtn" class="btn btn-primary btn-lg">
                                     Register
                                 </button>
-                            </div>
-                            <br>
-                        </span>
+                        </div>
+                        <br>
                     </form>
                 </div>
             </div>
