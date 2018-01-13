@@ -123,7 +123,8 @@ def register_teams(request):
             teamName = request.POST.getlist('teamName')[i]
 
             # Create a new team
-            newTeam = Team.objects.create(name=teamName)
+            newTeam = Team.objects.create(name=teamName, corporate_sponsor=Sponsor.objects.get(company_name=company))
+            newTeam.save()
 
             # Add player one to the database, connect to p2 and team
             Player.objects.create(first_name=p1_first, last_name=p1_last, email=p1_email, teammate=p2, team=newTeam)
