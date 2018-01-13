@@ -91,24 +91,47 @@ def check_promo(request):
     if request.method == "POST":
         promo_code = request.POST.get('promo_code')
 
-        response_dict = {'validPromo': False, 'numTeams': 0}
+        response_dict = {'company': None, 'validPromo': False, 'numTeams': 0}
         # Check promo code against what was entered in database
         if Sponsor.objects.filter(promo=promo_code).exists():
+            response_dict['company'] = Sponsor.objects.get(promo=promo_code).company_name
             response_dict['validPromo'] = True
             response_dict['numTeams'] = Sponsor.objects.get(promo=promo_code).num_teams
 
-        # If promo code matches, allow registration
-
-        # If not, prompt user that promo code is wrong, try again.
 
         return HttpResponse(json.dumps(response_dict))
 
 def register_teams(request):
     if request.method == "POST":
-        for i in range(len(request.POST.get('teamName'))):
-            print(request.POST.get('teamName')[i])
-            print(request.POST.get('p1Name')[i])
-            print(request.POST.get('p1Email')[i])
-            print(request.POST.get('p2Name')[i])
-            print(request.POST.get('p2Email')[i])
+        # Grab the sponsoring company
+        company = request.POST.get('company_name')
+        print(company)
+
+        # For each team in the post dictionary
+        for i in range(len(request.POST.getlist('teamName'))):
+            p1 = request.POST.getlist('p1Name')[i]
+            p1_first = p1.split()[0]
+            p1_last = p1.split()[1]
+            p1_email = request.POST.getlist('p1Email')[i]
+
+            p2 = request.POST.getlist('p2Name')[i]
+            p2_first = p2.split()[0]
+            p2_last = p2.split()[1]
+            p2_email = request.POST.getlist('p2Email')[i]
+
+
+            teamName = request.POST.getlist('teamName')[i]
+
+            # Create a new team
+            newTeam = Team.objects.create(name=teamName)
+
+            # Add player one to the database, connect to p2 and team
+            Player.objects.create(first_name=p1_first, last_name=p1_last, email=p1_email, teammate=p2, team=newTeam)
+
+            # Add player two to the database, connect to p1 and team
+            Player.objects.create(first_name=p2_first, last_name=p2_last, email=p2_email, teammate=p1, team=newTeam)
+    return HttpResponse('Success')
+
+
+
 

@@ -230,6 +230,8 @@ $(document).ready(function () {
                     $('#promoEnter').css('display', 'none'); // remove the value from the inputs
                     // Display the Team registration form
                     $('#registerTeams').removeClass('hidden');
+                    // Pass along the company name in the form
+                    $('#companyName').attr('value', data.company);
                     // For number of teams sponsored
                     for (i = 0; i < data.numTeams - 1; i++) {
                         // Create a separate sign-up div
