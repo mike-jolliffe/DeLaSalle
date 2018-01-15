@@ -1,18 +1,5 @@
 $(document).ready(function () {
 
-    // // Create parallax effect on homepage jumbotron
-    // var jumboHeight = $('.jumbotron').outerHeight();
-    //
-    // function parallax() {
-    //     var scrolled = $(window).scrollTop();
-    //     $('.bg').css('height', (jumboHeight - scrolled + 500) + 'px');
-    // }
-    //
-    // $(window).scroll(function (e) {
-    //     parallax();
-    // });
-    //
-
     // If teammate known, display entry field for teammate name
     $("#knowTeammate label").click(function () {
         console.log($(this).text());
@@ -180,7 +167,7 @@ $(document).ready(function () {
     });
 
 
-    // AJAX for posting
+    // AJAX for posting from register.html
     function add_registrant() {
         $.ajax({
             url: "add_registrant/", // the endpoint
@@ -216,6 +203,64 @@ $(document).ready(function () {
                 console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
             }
         });
+    }
+
+    // Submit post on submit
+    $('#checkPromo').on('submit', function (event) {
+        event.preventDefault();
+        check_promo();
+    });
+
+
+    // AJAX for posting from register.html
+    function check_promo() {
+        $.ajax({
+            url: "check_promo/", // the endpoint
+            type: "POST", // http method
+            // data sent with the post request
+            data: {
+                promo_code: $('#promoCode').val()
+            },
+
+            // handle a successful response
+            success: function (json) {
+                var data = JSON.parse(json);
+                if (data.validPromo === true) {
+                    // Hide the promo code field
+                    $('#promoEnter').css('display', 'none'); // remove the value from the inputs
+                    // Display the Team registration form
+                    $('#registerTeams').removeClass('hidden');
+                    // Pass along the company name in the form
+                    $('#companyName').attr('value', data.company);
+                    // For number of teams sponsored
+                    for (i = 0; i < data.numTeams - 1; i++) {
+                        // Create a separate sign-up div
+                        duplicate(i);
+
+                    }
+                } else {
+                    // Clear the promo code field
+                    $('#promoCode').val('');
+                    // Show danger-text statement about not valid promo
+                    $('#promoResult').html("<span class='text-danger bg-danger text-center'>Invalid promo code. Please try again!</span>");
+                }
+
+            },
+
+            // handle a non-successful response
+            error: function (xhr, errmsg) {
+                $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: " + errmsg +
+                    "<a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+            }
+        });
+    }
+
+    function duplicate(i) {
+        var original = document.getElementById('registerTeam' + i);
+        var clone = original.cloneNode(true); // "deep" clone
+        clone.id = "registerTeam" + ++i; // there can only be one element with an ID
+        original.parentNode.prepend(clone);
     }
 });
 
