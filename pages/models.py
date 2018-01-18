@@ -18,7 +18,7 @@ class Team(models.Model):
 class Player(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=100)
-    email = models.CharField(max_length=200, unique=True)
+    email = models.CharField(max_length=200)
     teammate = models.CharField(max_length=200, blank=True, null=True)
     team = models.ForeignKey(Team, related_name='players', blank=True, null=True)
 
