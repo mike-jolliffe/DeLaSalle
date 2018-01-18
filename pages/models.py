@@ -6,6 +6,9 @@ class Sponsor(models.Model):
     promo = models.CharField(max_length=100, null=True)
     num_teams = models.IntegerField(null=True)
 
+    def __str__(self):
+        return str(self.company_name)
+
 class Team(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     eventbrite_funds = models.FloatField(max_length=10, null=True, blank=True)
@@ -13,7 +16,7 @@ class Team(models.Model):
     corporate_sponsor = models.ForeignKey(Sponsor, related_name='teams', blank=True, null=True)
 
     def __str__(self):
-        return str(self.pk)
+        return "Team {} -- {}".format(self.pk, self.name)
 
 class Player(models.Model):
     first_name = models.CharField(max_length=50)
