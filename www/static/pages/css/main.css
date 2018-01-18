@@ -92,17 +92,16 @@ hr {
 }
 
 .sponsorImage1 {
-    height: 280px;
+    height: 250px;
     background-image: url('/static/pages/img/HK-Law-final.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .sponsorImage2 {
-    height: 300px;
-    width: 200px;
+    height: 360px;
     background-image: url('/static/pages/img/cresaLogo.jpg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
