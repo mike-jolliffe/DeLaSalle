@@ -142,7 +142,7 @@
                     return x(d.funding) - 40;
                 })
                 .text(function (d) {
-                    return "$" + d.funding;
+                    return "$" + parseInt(d.funding);
                 });
         }
 
