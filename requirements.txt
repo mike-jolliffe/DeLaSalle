@@ -16,7 +16,7 @@ jmespath==0.9.3
 MarkupSafe==1.0
 olefile==0.44
 pathspec==0.5.0
-Pillow==4.3.0
+Pillow==9.0.1
 postgres==2.2.1
 psycopg2==2.7.3.2
 python-dateutil==2.6.1
